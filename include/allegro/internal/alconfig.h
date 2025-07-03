@@ -79,15 +79,14 @@
             static inline type name args code
       #else
          #define AL_INLINE(type, name, args, code)    \
-            extern __inline__ type name args;         \
-            extern __inline__ type name args code
+            static inline type name args code
       #endif
    #endif
 
    #define AL_PRINTFUNC(type, name, args, a, b)    AL_FUNC(type, name, args) __attribute__ ((format (printf, a, b)))
 
    #ifndef INLINE
-      #define INLINE          __inline__
+      #define INLINE          inline
    #endif
 
    #if __GNUC__ >= 3
