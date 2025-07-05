@@ -32,8 +32,7 @@
 #define ALLEGRO_DOS
 #define ALLEGRO_I386
 #define ALLEGRO_LITTLE_ENDIAN
-#define ALLEGRO_GUESS_INTTYPES_OK
-   /* inttypes.h and stdint.h not available in djgpp 2.02 */
+#define ALLEGRO_HAVE_INTTYPES_H
 #define ALLEGRO_CONSOLE_OK
 #define ALLEGRO_VRAM_SINGLE_SURFACE
 #define ALLEGRO_USE_CONSTRUCTOR
