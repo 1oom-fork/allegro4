@@ -12,6 +12,7 @@
 
 PLATFORM = djgpp
 CC = gcc
+AR = ar
 EXE = .exe
 OBJ = .o
 
@@ -22,6 +23,7 @@ LIB_NAME = lib/djgpp/lib$(VERSION).a
 
 ifdef CROSSCOMPILE
    UNIX_TOOLS = 1
+   CC = $(XPREFIX)gcc
 endif
 
 ifneq (,$(findstring bash,$(SHELL)))
@@ -331,8 +333,12 @@ include makefile.tst
 
 # -------- finally, we get to the fun part... --------
 
+ifdef CROSSCOMPILE
+   AR = $(XPREFIX)ar
+endif
+
 define MAKE_LIB
-   ar rs $(LIB_NAME) $(OBJECTS)
+   $(AR) rs $(LIB_NAME) $(OBJECTS)
 endef
 
 COMPILE_FLAGS = $(subst src/,-DALLEGRO_SRC ,$(findstring src/, $<))$(CFLAGS)
@@ -411,7 +417,7 @@ endef
 endif
 
 define MAKE_PLUGIN_LIB
-   ar rs $(PLUGIN_LIB) $(PLUGIN_OBJS)
+   $(AR) rs $(PLUGIN_LIB) $(PLUGIN_OBJS)
 endef
 
 define LINK_WITH_PLUGINS
