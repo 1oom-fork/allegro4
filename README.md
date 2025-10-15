@@ -25,4 +25,4 @@ Build and install:
 
 - ./xmake.sh depend
 - ./xmake.sh lib -j 3
-- ./xmake.sh install
+- sudo ./xmake.sh install
