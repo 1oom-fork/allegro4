@@ -21,6 +21,9 @@ XC_PATH=/<djgpp_path>/i586-pc-msdosdjgpp/bin:/<djgpp_path>/bin
 XPREFIX=i586-pc-msdosdjgpp-
 INSTALL_BASE=/<djgpp_path>/i586-pc-msdosdjgpp
 
+To find out the default internal search paths, you can use the command:
+echo | /usr/local/djgpp/bin/i586-pc-msdosdjgpp-gcc -xc -E -v -
+
 Build and install:
 
 - ./xmake.sh depend
